@@ -24,10 +24,11 @@ const imageGallery = [
 
 const container = document.querySelector(".container");
 
+
 for (let i = 0; i < imageGallery.length; i++) {
     const imageLink = imageGallery[i].image;
 
-    // Create a wrapper div for each trio
+    // Create a wrapper div
     const wrapper = document.createElement("div");
     container.appendChild(wrapper);
 
@@ -48,7 +49,7 @@ for (let i = 0; i < imageGallery.length; i++) {
     textElement.innerHTML = imageText;
     wrapper.appendChild(textElement);
 
-    // Add the 'inAction' class to the first trio
+    // Add the 'inAction' class to the dive wrapper
     if (i == 0) {
         wrapper.classList.add("inAction");
     }
@@ -65,6 +66,8 @@ const btnUpElement = document.querySelector(".btnUp");
 btnUpElement.addEventListener("click", function () {
     wrapperElements[activeImage].classList.remove("inAction");
 
+
+    //go forwards
     if (activeImage < wrapperElements.length - 1) {
         activeImage++;
     } else {
@@ -79,6 +82,8 @@ const btnDownElement = document.querySelector(".btnDown");
 btnDownElement.addEventListener("click", function () {
     wrapperElements[activeImage].classList.remove("inAction");
 
+
+    // go backwards
     if (activeImage > 0) {
         activeImage--;
     } else {
