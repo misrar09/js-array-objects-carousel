@@ -49,7 +49,7 @@ for (let i = 0; i < imageGallery.length; i++) {
     textElement.innerHTML = imageText;
     wrapper.appendChild(textElement);
 
-    // Add the 'inAction' class to the dive wrapper
+    // Add the 'inAction' class to the div wrapper
     if (i == 0) {
         wrapper.classList.add("inAction");
     }
@@ -63,20 +63,31 @@ wrapperElements[activeImage].classList.add("inAction");
 
 const btnUpElement = document.querySelector(".btnUp");
 
-btnUpElement.addEventListener("click", function () {
+
+
+// created a function with 3 second time internal
+function slideShow(){
+    
     wrapperElements[activeImage].classList.remove("inAction");
-
-
+    
+    
     //go forwards
     if (activeImage < wrapperElements.length - 1) {
         activeImage++;
     } else {
         activeImage = 0;
     }
-
+    
     wrapperElements[activeImage].classList.add("inAction");
+}
+const timeShow = setInterval (slideShow, 3000); // calling the function of interval
+
+//creating a button function with slideshow as well
+btnUpElement.addEventListener("click", function () {
+    slideShow()
 });
 
+// normal button function iwth going backwards on click
 const btnDownElement = document.querySelector(".btnDown");
 
 btnDownElement.addEventListener("click", function () {
