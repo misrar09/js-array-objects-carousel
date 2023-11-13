@@ -55,46 +55,52 @@ for (let i = 0; i < imageGallery.length; i++) {
     }
 }
 
+
 const wrapperElements = container.querySelectorAll(".container > div");
-
 let activeImage = 0;
-
 wrapperElements[activeImage].classList.add("inAction");
 
-const btnUpElement = document.querySelector(".btnUp");
 
 
 
 // created a function with 3 second time internal
 function slideShow(){
-    
+        
     wrapperElements[activeImage].classList.remove("inAction");
-    
-    
-    //go forwards
-    if (activeImage < wrapperElements.length - 1) {
-        activeImage++;
-    } else {
-        activeImage = 0;
+        
+        
+        //go forwards
+        if (activeImage < wrapperElements.length - 1) {
+            activeImage++;
+        } else {
+            activeImage = 0;
+        }
+        
+        wrapperElements[activeImage].classList.add("inAction");
     }
     
-    wrapperElements[activeImage].classList.add("inAction");
-}
-const timeShow = setInterval (slideShow, 3000); // calling the function of interval
+    //creating internval function and button to start the show
+    const btnStart = document.querySelector(".start");
+    let timeShow;
+    btnStart.addEventListener("click", function(){
+        timeShow = setInterval (slideShow, 3000); // calling the function of interval
+    });
 
-//creating a button function with slideshow as well
+
+    //creating a button function with slideshow as well
+const btnUpElement = document.querySelector(".btnUp");
 btnUpElement.addEventListener("click", function () {
     slideShow();
 });
 
 
-//creating 
+//creating clear internal fuction and button to stop the show
 const clearShow = clearInterval
 const btnStop = document.querySelector(".stop");
 btnStop.addEventListener("click", function(){
     
      clearInterval(timeShow);
-})
+});
 
 
 
@@ -113,4 +119,5 @@ btnDownElement.addEventListener("click", function () {
     }
 
     wrapperElements[activeImage].classList.add("inAction");
+
 });
