@@ -84,8 +84,19 @@ const timeShow = setInterval (slideShow, 3000); // calling the function of inter
 
 //creating a button function with slideshow as well
 btnUpElement.addEventListener("click", function () {
-    slideShow()
+    slideShow();
 });
+
+
+//creating 
+const clearShow = clearInterval
+const btnStop = document.querySelector(".stop");
+btnStop.addEventListener("click", function(){
+    
+     clearInterval(timeShow);
+})
+
+
 
 // normal button function iwth going backwards on click
 const btnDownElement = document.querySelector(".btnDown");

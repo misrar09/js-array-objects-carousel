@@ -71,3 +71,14 @@ button {
 .btnDown {
     bottom: 10px;
 }
+
+.stop, .start{
+    border-radius: 15px;
+    width: 190px;
+    height: 30px;
+    position: relative;
+    margin-top: 8px;
+
+    margin-left: 30px;
+ 
+}
